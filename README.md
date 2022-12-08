@@ -9,14 +9,19 @@ Play music from my music application <a href='https://github.com/whleucka/sopran
 - *nix OS
 
 ### Setup
-- Plugged
+- Packer
 ```
 use {
-    'whleucka/soprano.nvim',
+    "whleucka/soprano.nvim",
     requires = {
         "akinsho/toggleterm.nvim"
     }
 }
+```
+
+- Plug
+```
+Plug "whleucka/soprano.nvim"
 ```
 
 - Create binding
