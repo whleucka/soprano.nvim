@@ -9,7 +9,7 @@ read -p "Search: artist, album, or title: " query
 if  [[ $query == '' ]]; then
     printf "Please provide a search term\n"
 else
-    selected=`scripts/search-request $query | tr -s ' ' | sort | fzf-tmux --header 'Select a track to play...' | cut -d " " -f1`
+    selected=`search-request $query | tr -s ' ' | sort | fzf-tmux --header 'Select a track to play...' | cut -d " " -f1`
     echo $selected | tr " " "\n" | awk '{ print "https://hleucka.ddns.net/api/v1/music/play"$0 }' > list.txt
     mpv --playlist=list.txt --no-video
 fi
