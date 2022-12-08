@@ -22,6 +22,6 @@ if  [[ $query == '' ]]; then
 else
     SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
     selected=`$SCRIPT_DIR/search-request "$query" | tr -s ' ' | sort | fzf-tmux --header 'Select a track to play...' | cut -d " " -f1`
-    echo $selected | tr " " "\n" | awk '{ print "https://hleucka.ddns.net/api/v1/music/play"$0 }' > /tmp/list.txt
+    echo $selected | tr " " "\n" | awk '{ print "https://hleucka.ddns.net/api/v1/music/play/"$0 }' > /tmp/list.txt
     mpv --playlist=/tmp/list.txt --no-video
 fi
