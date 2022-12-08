@@ -1,6 +1,7 @@
 # soprano.nvim
 
 Experimental plugin! 👷
+
 Play music from my music application <a href='https://github.com/whleucka/soprano.nvim' title='Soprano'>Soprano</a> inside of neovim.
 
 
