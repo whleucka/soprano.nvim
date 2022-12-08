@@ -14,8 +14,6 @@ mpv_warning() {
 	exit
 }
 
-SERVER_URL="https://hleucka.ddns.net/api/v1/music/play"
-
 which mpv >/dev/null || mpv_warning
 
 read -p "Search: artist, album, or title: " query
@@ -24,6 +22,6 @@ if  [[ $query == '' ]]; then
 else
     SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
     selected=`$SCRIPT_DIR/search-request "$query" | tr -s ' ' | sort | fzf-tmux --header 'Select a track to play...' | cut -d " " -f1`
-    echo $selected | tr " " "\n" | awk '{ print $SERVER_URL$0 }' > /tmp/list.txt
+    echo $selected | tr " " "\n" | awk '{ print "https://hleucka.ddns.net/api/v1/music/play"$0 }' > /tmp/list.txt
     mpv --playlist=/tmp/list.txt --no-video
 fi
