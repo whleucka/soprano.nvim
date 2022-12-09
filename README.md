@@ -6,9 +6,9 @@ Play music from my music application <a href='https://github.com/whleucka/sopran
 
 
 ### Requirements
-- php (will change later)
+- python
 - mpv
-- *nix OS
+- Linux
 
 ### Setup
 - Packer
