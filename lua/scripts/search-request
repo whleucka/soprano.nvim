@@ -18,7 +18,7 @@ if ($term) {
     if ($result) {
         $data = json_decode($result);
         foreach ($data->data as $one) {
-            printf("%s %s — %s\n", $one->md5, $one->artist, $one->title);
+            printf("%s — %s | %s\n", $one->artist, $one->title, $one->md5);
         }
     }
 }
