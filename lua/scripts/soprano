@@ -23,7 +23,7 @@ if  [[ $query == '' ]]; then
     exit
 else
     SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-    selected=`$SCRIPT_DIR/search-request "$query" | tr -s ' ' | sort | fzf-tmux --header 'Select a track to play...' | awk '{ print $NF }'`
+    selected=`$SCRIPT_DIR/search-request --query="$query" | tr -s ' ' | sort | fzf-tmux --header 'Select a track to play...' | awk '{ print $NF }'`
     echo $selected | tr " " "\n" | awk '{ print "https://hleucka.ddns.net/api/v1/music/play/"$0 }' > /tmp/soprano_list
     if  [[ $selected == '' ]]; then
         exit
