@@ -9,7 +9,7 @@ argv = sys.argv[1:]
 if not argv:
     exit(1)
 
-options, remainder = getopt.getopt(sys.argv[1:], 'q:', ['query='])
+options, remainder = getopt.getopt(argv, 'q:', ['query='])
 
 for opt, arg in options:
     if opt in ('-q', '--query'):
