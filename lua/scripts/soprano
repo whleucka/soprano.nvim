@@ -23,8 +23,9 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 # Check if applications are installed
 which mpv >/dev/null || mpv_warning
 which python3 >/dev/null || python_warning
+python -c "import scrapy" &> /dev/null 2>&1
 # Install depes
-pip install -r "$SCRIPT_DIR/requirements.txt" > /dev/null 2>&1
+[[ $? -eq 1 ]] &&  pip install -r "$SCRIPT_DIR/requirements.txt" > /dev/null 2>&1
 
 # User input
 read -p "Search: artist, album, or title: " query
