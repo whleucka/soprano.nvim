@@ -9,6 +9,8 @@
 #  php (for now)
 #
 
+trap 'echo goodbye!; exit' INT
+
 mpv_warning() {
     printf "Oops! Install mpv and try again\n"
 	exit
