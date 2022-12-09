@@ -21,4 +21,5 @@ query = {'term': term}
 response = requests.get("https://hleucka.ddns.net/api/v1/music/search", params=query)
 data = response.json()
 
-for datum in data['data']: print('{} — {} | {}'.format(datum['artist'], datum['title'], datum['md5']))
+for datum in data['data']:
+    print(f'{datum["artist"]} — {datum["title"]} | {datum["md5"]}')
