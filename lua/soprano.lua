@@ -21,7 +21,7 @@ end
 
 -- Make sure local functions are defined first
 local terminal = require('toggleterm.terminal').Terminal
-local soprano = terminal:new({ cmd = script_path() .. "scripts/soprano", hidden = true, direction = "horizontal" })
+local soprano = terminal:new({ cmd = script_path() .. "scripts/soprano", hidden = true, direction = "float" })
 
 function M.search()
     soprano:toggle()
