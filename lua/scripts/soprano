@@ -8,7 +8,6 @@
 #  mpv
 #  php (for now)
 #
-
 trap 'echo goodbye!; exit' INT
 
 mpv_warning() {
@@ -21,18 +20,23 @@ python_warning() {
 }
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+# Check if applications are installed
 which mpv >/dev/null || mpv_warning
 which python3 >/dev/null || python_warning
+# Install depes
 pip install -r "$SCRIPT_DIR/requirements.txt" > /dev/null 2>&1
 
+# User input
 read -p "Search: artist, album, or title: " query
 if  [[ $query == '' ]]; then
     exit
 else
+    # FZF prompt
     selected=`$SCRIPT_DIR/search.py -q"$query" | tr -s ' ' | sort | fzf-tmux --header 'Select a track to play...' | awk '{ print $NF }'`
     echo $selected | tr " " "\n" | awk '{ print "https://hleucka.ddns.net/api/v1/music/play/"$0 }' > /tmp/soprano_list
     if  [[ $selected == '' ]]; then
         exit
     fi
+    # Stream file
     mpv --playlist=/tmp/soprano_list --no-video
 fi
