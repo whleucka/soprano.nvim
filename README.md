@@ -2,7 +2,7 @@
 
 Experimental plugin! 👷
 
-Play music from my music application <a href='https://github.com/whleucka/soprano.nvim' title='Soprano'>Soprano</a> inside of neovim.
+Play music from my music application, <a href='https://github.com/whleucka/soprano.nvim' title='Soprano'>Soprano</a>, inside of neovim.
 
 
 ### Requirements
@@ -26,7 +26,7 @@ use {
 Plug "whleucka/soprano.nvim"
 ```
 
-- Create binding
+- Example binding
 ```
-vim.keymap.set('n', '<C-s>', '<cmd>lua require("soprano").search()<CR>')
+vim.keymap.set('n', '<leader>s', '<cmd>lua require("soprano").search()<CR>')
 ```
