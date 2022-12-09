@@ -2,8 +2,9 @@
 
 Experimental plugin! 👷
 
-Play music from my music application, <a href='https://github.com/whleucka/soprano.nvim' title='Soprano'>Soprano</a>, inside of neovim.
+Play music from my music application, <a href='https://github.com/whleucka/soprano-react' title='soprano-react'>Soprano</a>, inside of neovim.
 
+View the music application demo, <a href='https://soprano.williamhleucka.com/' title='Soprano'>here</a>.
 
 ### Requirements
 - python
